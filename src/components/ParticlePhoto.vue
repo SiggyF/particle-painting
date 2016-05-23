@@ -58,9 +58,9 @@ export default {
       this.camera.position.y = 300 * Math.sin(seconds);
       this.camera.lookAt(new THREE.Vector3(0, 0, 0));
       for (var particle of this.particleSystem.geometry.vertices) {
-        particle.x = particle.color.a * 100;
-        particle.y = particle.color.b * 100;
-        particle.z = particle.color.l * 100;
+        particle.x = particle.color.a * Math.sin(seconds) * 100;
+        particle.y = particle.color.b * Math.cos(seconds) * 100;
+        particle.z = particle.color.l * Math.sin(seconds) * 100;
       }
       this.particleSystem.geometry.verticesNeedUpdate = true;
       this.render();
